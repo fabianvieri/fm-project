@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Omelette from './images/image-omelette.jpeg';
 ---
 
 <BaseLayout title="Recipe Page Main" description="Recipe Page Main Solutions">
@@ -8,31 +10,178 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		rel="stylesheet"
 		slot="fonts"
 	/>
-	<div class="text-red-500">
-		Simple Omelette Recipe An easy and quick dish, perfect for any meal. This
-		classic omelette combines beaten eggs cooked to perfection, optionally
-		filled with your choice of cheese, vegetables, or meats. Preparation time
-		Total: Approximately 10 minutes Preparation: 5 minutes Cooking: 5 minutes
-		Ingredients 2-3 large eggs Salt, to taste Pepper, to taste 1 tablespoon of
-		butter or oil Optional fillings: cheese, diced vegetables, cooked meats,
-		herbs Instructions Beat the eggs: In a bowl, beat the eggs with a pinch of
-		salt and pepper until they are well mixed. You can add a tablespoon of water
-		or milk for a fluffier texture. Heat the pan: Place a non-stick frying pan
-		over medium heat and add butter or oil. Cook the omelette: Once the butter
-		is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs
-		evenly coat the surface. Add fillings (optional): When the eggs begin to set
-		at the edges but are still slightly runny in the middle, sprinkle your
-		chosen fillings over one half of the omelette. Fold and serve: As the
-		omelette continues to cook, carefully lift one edge and fold it over the
-		fillings. Let it cook for another minute, then slide it onto a plate. Enjoy:
-		Serve hot, with additional salt and pepper if needed. Nutrition The table
-		below shows nutritional values per serving without the additional fillings.
-		Calories 277kcal Carbs 0g Protein 20g Fat 22g
+	<div class="flex items-center sm:py-8 justify-center bg-shell border">
+		<header>
+			<Image
+				src={Omelette}
+				width="720"
+				alt="Simple Omelette"
+				loading="lazy"
+				class="sm:hidden"
+			/>
+			<main
+				class="bg-white text-wenge font-outfit sm:rounded-xl flex flex-col sm:p-8 p-6 w-full max-w-[700px]"
+			>
+				<header>
+					<Image
+						src={Omelette}
+						width="720"
+						alt="Simple Omelette"
+						loading="lazy"
+						class="sm:rounded-lg sm:block hidden"
+					/>
+					<div>
+						<h1 class="text-4xl my-4 font-young text-charcoal">
+							Simple Omelette Recipe
+						</h1>
+						<p class="text-[15px] text-justify">
+							An easy and quick dish, perfect for any meal. This classic
+							omelette combines beaten eggs cooked to perfection, optionally
+							filled with your choice of cheese, vegetables, or meats.
+						</p>
+					</div>
+				</header>
+				<section class="my-4 bg-rose px-6 py-4 rounded-lg">
+					<h3 class="text-berry mb-2 font-semibold text-[18px]">
+						Preparation time
+					</h3>
+					<ul class="list-disc ml-6 text-[15px] space-y-2">
+						<li>
+							<span class="font-bold">Total</span>: Approximately 10 minutes
+						</li>
+						<li>
+							<span class="font-bold">Preparation</span>: 5 minutes
+						</li>
+						<li>
+							<span class="font-bold">Cooking</span>: 5 minutes
+						</li>
+					</ul>
+				</section>
+				<section class="my-4">
+					<h2 class="font-young mb-2 text-nutmeg text-2xl">Ingredients</h2>
+					<ul class="list-disc ml-6 text-[15px] space-y-2">
+						<li>2-3 large eggs</li>
+						<li>Salt, to taste</li>
+						<li>Pepper, to taste</li>
+						<li>1 tablespoon of butter or oil</li>
+						<li>
+							Optional fillings: cheese, diced vegetables, cooked meats, herbs
+						</li>
+					</ul>
+				</section>
+				<hr />
+				<section class="my-4">
+					<h2 class="font-young mb-2 text-nutmeg text-2xl">Instructions</h2>
+					<ol
+						class="list-decimal marker:text-amber-800 marker:font-bold ml-6 space-y-2"
+					>
+						<li class="pl-3">
+							<span class="font-bold">Beat the eggs</span>: In a bowl, beat the
+							eggs with a pinch of salt and pepper until they are well mixed.
+							You can add a tablespoon of water or milk for a fluffier texture.
+						</li>
+						<li class="pl-3">
+							<span class="font-bold">Heat the pan</span>: Place a non-stick
+							frying pan over medium heat and add butter or oil.
+						</li>
+						<li class="pl-3">
+							<span class="font-bold">Cook the omelette</span>: Once the butter
+							is melted and bubbling, pour in the eggs. Tilt the pan to ensure
+							the eggs evenly coat the surface.
+						</li>
+						<li class="pl-3">
+							<span class="font-bold">Add fillings (optional)</span>: When the
+							eggs begin to set at the edges but are still slightly runny in the
+							middle, sprinkle your chosen fillings over one half of the
+							omelette.
+						</li>
+						<li class="pl-3">
+							<span class="font-bold">Fold and serve</span>: As the omelette
+							continues to cook, carefully lift one edge and fold it over the
+							fillings. Let it cook for another minute, then slide it onto a
+							plate.
+						</li>
+						<li class="pl-3">
+							<span class="font-bold">Enjoy</span>: Serve hot, with additional
+							salt and pepper if needed.
+						</li>
+					</ol>
+				</section>
+				<hr />
+				<section class="my-4">
+					<h2 class="font-young text-nutmeg text-2xl">Nutrition</h2>
+					<p class="my-2">
+						The table below shows nutritional values per serving without the
+						additional fillings.
+					</p>
+					<table class="w-full">
+						<tr>
+							<th>Calories</th>
+							<td class="font-bold text-nutmeg">277kcal</td>
+						</tr>
+						<tr>
+							<th>Carbs</th>
+							<td class="font-bold text-nutmeg">0g</td>
+						</tr>
+						<tr>
+							<th>Protein</th>
+							<td class="font-bold text-nutmeg">20g</td>
+						</tr>
+						<tr>
+							<th>Fat</th>
+							<td class="font-bold text-nutmeg">22g</td>
+						</tr>
+					</table>
+				</section>
+			</main>
+		</header>
 	</div>
-</BaseLayout>
 
-<style>
-	div {
-		font-family: 'Outfit', serif;
-	}
-</style>
+	<style>
+		tr:not(:last-child) {
+			border-bottom: 1px solid #eee;
+		}
+		th,
+		td {
+			padding: 0.5rem;
+			text-align: left;
+		}
+		th {
+			font-weight: normal;
+		}
+		.font-outfit {
+			font-family: 'Outfit', sans-serif;
+			font-optical-sizing: auto;
+			font-style: normal;
+		}
+		.font-young {
+			font-family: 'Young Serif', serif;
+			font-weight: 400;
+			font-style: normal;
+		}
+		.bg-shell {
+			background: hsl(30, 54%, 90%);
+		}
+		.bg-rose {
+			background: hsl(330, 100%, 98%);
+		}
+		.text-nutmeg {
+			color: hsl(14, 45%, 36%);
+		}
+		.text-berry {
+			color: hsl(332, 51%, 32%);
+		}
+		.text-rose {
+			color: hsl(330, 100%, 98%);
+		}
+		.text-light-gray {
+			color: hsl(30, 18%, 87%);
+		}
+		.text-wenge {
+			color: hsl(30, 10%, 34%);
+		}
+		.text-charcoal {
+			color: hsl(24, 5%, 18%);
+		}
+	</style>
+</BaseLayout>
