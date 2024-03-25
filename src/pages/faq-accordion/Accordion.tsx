@@ -26,7 +26,7 @@ const Accordion = ({ data }: Props) => {
 					key={i}
 					className={`${classes.accordion} ${
 						open[i] ? classes.active : ''
-					} p-4`}
+					} pr-4 pt-4 pb-2`}
 				>
 					<div className="flex justify-between items-center gap-4">
 						<h2 className="font-bold" onClick={() => openHandler(i)}>

@@ -1,6 +1,8 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import Star from './images/icon-star.svg';
+import BgDesktop from './images/background-pattern-desktop.svg';
+import BgMobile from './images/background-pattern-mobile.svg';
 
 import Accordion from './Accordion';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -42,13 +44,29 @@ const data = [
 		rel="stylesheet"
 		slot="fonts"
 	/>
-	<main
-		class=`px-8 pt-6 pb-3 w-full max-w-[580px] shadow-md rounded-lg bg-white ${classes.fontWork} ${classes.textDarkPurple}`
+	<div
+		class={`h-screen grid place-items-center ${classes.bgLightPink} relative`}
 	>
-		<div class="flex gap-4 mb-4">
-			<Image src={Star} alt="FAQ" width="35" loading="eager" />
-			<h1 class="font-bold text-5xl">FAQs</h1>
-		</div>
-		<Accordion data={data} client:load />
-	</main>
+		<Image
+			src={BgMobile}
+			alt="FAQ"
+			class="absolute w-full inset-0 z-0 sm:hidden"
+			loading="eager"
+		/>
+		<Image
+			src={BgDesktop}
+			alt="FAQ"
+			class="absolute w-full inset-0 z-0 hidden sm:block"
+			loading="eager"
+		/>
+		<main
+			class=`px-8 pt-6 pb-3 w-[90%] z-10 max-w-[550px] shadow-md rounded-lg bg-white ${classes.fontWork} ${classes.textDarkPurple}`
+		>
+			<div class="flex gap-4 mb-2 items-center">
+				<Image src={Star} alt="FAQ" class="w-6 sm:w-10" loading="eager" />
+				<h1 class="font-bold text-3xl sm:text-5xl">FAQs</h1>
+			</div>
+			<Accordion data={data} client:load />
+		</main>
+	</div>
 </BaseLayout>
