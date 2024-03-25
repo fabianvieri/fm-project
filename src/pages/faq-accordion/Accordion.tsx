@@ -9,7 +9,10 @@ interface Props {
 }
 
 const Accordion = ({ data }: Props) => {
-	const [open, setOpen] = useState<boolean[]>(Array(data.length).fill(false));
+	const [open, setOpen] = useState<boolean[]>(() => [
+		true,
+		...Array(data.length - 1).fill(false),
+	]);
 
 	const openHandler = (index: number) => {
 		setOpen((prevState) => {
