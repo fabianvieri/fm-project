@@ -1,5 +1,39 @@
 ---
+import { Image } from 'astro:assets';
+import Star from './images/icon-star.svg';
+
+import Accordion from './Accordion';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import classes from './accordion.module.css';
+
+const data = [
+	{
+		label: 'What is Frontend Mentor, and how will it help me?',
+		content: `Frontend Mentor offers realistic coding challenges to help developers
+		improve their frontend coding skills with projects in HTML, CSS, and
+		JavaScript. It's suitable for all levels and ideal for portfolio
+		building.`,
+	},
+	{
+		label: 'Is Frontend Mentor free?',
+		content: `Yes, Frontend Mentor offers both free and premium coding challenges,
+		with the free option providing access to a range of projects suitable
+		for all skill levels.`,
+	},
+	{
+		label: 'Can I use Frontend Mentor projects in my portfolio?',
+		content: `Yes, you can use projects completed on Frontend Mentor in your
+		portfolio. It's an excellent way to showcase your skills to potential
+		employers!`,
+	},
+	{
+		label: `How can I get help if I'm stuck on a challenge?`,
+		content: `The best place to get help is inside Frontend Mentor's Discord
+		community. There's a help channel where you can ask questions and seek
+		support from other community members.`,
+	},
+];
 ---
 
 <BaseLayout title="FAQ Accordion" description="FAQ Accordion Solution">
@@ -8,34 +42,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		rel="stylesheet"
 		slot="fonts"
 	/>
-	<div class="">
-		FAQs What is Frontend Mentor, and how will it help me? Frontend Mentor
-		offers realistic coding challenges to help developers improve their frontend
-		coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
-		all levels and ideal for portfolio building. Is Frontend Mentor free? Yes,
-		Frontend Mentor offers both free and premium coding challenges, with the
-		free option providing access to a range of projects suitable for all skill
-		levels. Can I use Frontend Mentor projects in my portfolio? Yes, you can use
-		projects completed on Frontend Mentor in your portfolio. It's an excellent
-		way to showcase your skills to potential employers! How can I get help if
-		I'm stuck on a Frontend Mentor challenge? The best place to get help is
-		inside Frontend Mentor's Discord community. There's a help channel where you
-		can ask questions and seek support from other community members.
-	</div>
-	<style slot="styles">
-		.font-work {
-			font-family: 'Work Sans', sans-serif;
-			font-optical-sizing: auto;
-			font-style: normal;
-		}
-		.text-light-pink {
-			color: hsl(275, 100%, 97%);
-		}
-		.text-gray-purple {
-			color: hsl(292, 16%, 49%);
-		}
-		.text-dark-purple {
-			color: hsl(292, 42%, 14%);
-		}
-	</style>
+	<main
+		class=`px-8 pt-6 pb-3 w-full max-w-[580px] shadow-md rounded-lg bg-white ${classes.fontWork} ${classes.textDarkPurple}`
+	>
+		<div class="flex gap-4 mb-4">
+			<Image src={Star} alt="FAQ" width="35" loading="eager" />
+			<h1 class="font-bold text-5xl">FAQs</h1>
+		</div>
+		<Accordion data={data} client:load />
+	</main>
 </BaseLayout>

@@ -1,0 +1,32 @@
+.fontWork {
+	font-family: 'Work Sans', sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+.textLightPink {
+	color: hsl(275, 100%, 97%);
+}
+.textGrayPurple {
+	color: hsl(292, 16%, 49%);
+}
+.textDarkPurple {
+	color: hsl(292, 42%, 14%);
+}
+.accordion h2 {
+	color: hsl(292, 42%, 14%);
+	cursor: pointer;
+}
+.accordion h2:hover {
+	color: #ad28eb;
+}
+.accordion:not(:last-child) {
+	border-bottom: 1px solid #eaeaea;
+}
+.accordion.active p {
+	max-height: 150px;
+}
+.accordion p {
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.4s;
+}
